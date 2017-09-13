@@ -8,9 +8,10 @@ public class Polinomio {
 	
 	public Polinomio() { }
 	
-	/*double evaluarMSucesivas (double x) {}
+	/* Antes de empezar a trabajar con una función, anotemos en un comentario al lado quién la va a hacer
+	double evaluarMSucesivas (double x) {}
 	double evaluarRecursiva (double x) {}
-	double evaluarRecursivaPar (double x) {}
+	double evaluarRecursivaPar (double x) {} //Vale
 	double evaluarProgDinamica (double x) {}
 	double evaluarMejorada (double x) {}
 	double evaluarPow (double x) {}
