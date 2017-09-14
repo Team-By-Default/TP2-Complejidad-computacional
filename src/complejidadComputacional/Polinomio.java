@@ -73,6 +73,19 @@ public class Polinomio {
 		return x*potenciaRecursivaPar(x, n-1);
 	}
 	
+	public double evaluarProgDinamica (double x ) {
+		int n = this.grado;
+		double []result = new double [this.grado];
+		double total = 0;
+		for(int i=0; i<=this.grado; i++) {
+			result[i] = this.coeficientes[i] * potenciaRecursivaPar(x,n);
+			n--;
+		}
+		for(int i=0; i<=this.grado; i++)
+			total += result[i];
+		return total;
+	}
+	
 	public static void main(String[] args) {
 		//Variables de testeo
 		double vec[]={3,1,-2,0,-10,4};
@@ -84,6 +97,12 @@ public class Polinomio {
 		System.out.println("730 vs " + poli.evaluarRecursivaPar(3));
 		System.out.println("3164 vs " + poli.evaluarRecursivaPar(4));
 		System.out.println("14 vs " + poli.evaluarRecursivaPar(-1));
+		System.out.println("4 vs " + poli.evaluarProgDinamica(0));
+		System.out.println("-4 vs " + poli.evaluarProgDinamica(1));
+		System.out.println("80 vs " + poli.evaluarProgDinamica(2));
+		System.out.println("730 vs " + poli.evaluarProgDinamica(3));
+		System.out.println("3164 vs " + poli.evaluarProgDinamica(4));
+		System.out.println("14 vs " + poli.evaluarProgDinamica(-1));
 		//funcionan!
 	}
 
