@@ -53,23 +53,38 @@ public class Polinomio {
 		return x*potenciaRecursiva(x, n-1);
 	}
 	
+	public double evaluarRecursivaPar (double x) {
+		double result=0;
+		int n = this.grado;
+		for(int i=0; i<=this.grado; i++) {
+			result += this.coeficientes[i] * potenciaRecursivaPar(x,n);
+			n--;
+		}
+		return result;
+	}
+	
+	public double potenciaRecursivaPar(double x, int n) {
+		if(n<0)
+			throw new PotenciaException("Potencia negativa");
+		if(n==0)
+			return 1;
+		if(n%2 == 0)
+			return potenciaRecursivaPar(x*x, n/2);
+		return x*potenciaRecursivaPar(x, n-1);
+	}
+	
 	public static void main(String[] args) {
 		//Variables de testeo
 		double vec[]={3,1,-2,0,-10,4};
 		Polinomio poli=new Polinomio(5, vec);
 		//probamos la funcion evaluarMSucesivas
-		System.out.println(poli.evaluarMSucesivas(0));
-		System.out.println(poli.evaluarMSucesivas(1));
-		System.out.println(poli.evaluarMSucesivas(2));
-		System.out.println(poli.evaluarMSucesivas(3));
-		System.out.println(poli.evaluarMSucesivas(4));
+		System.out.println("4 vs " + poli.evaluarRecursivaPar(0));
+		System.out.println("-4 vs " + poli.evaluarRecursivaPar(1));
+		System.out.println("80 vs " + poli.evaluarRecursivaPar(2));
+		System.out.println("730 vs " + poli.evaluarRecursivaPar(3));
+		System.out.println("3164 vs " + poli.evaluarRecursivaPar(4));
+		System.out.println("14 vs " + poli.evaluarRecursivaPar(-1));
 		//funcionan!
-		
-		//Evaluando recursiva
-		double coef[]= {1,2,3};
-		Polinomio poly = new Polinomio(2,coef);
-		System.out.println(poly.evaluarRecursiva(1));
-		System.out.println(poly.evaluarRecursiva(-1));
 	}
 
 }
