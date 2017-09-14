@@ -1,8 +1,8 @@
 package complejidadComputacional;
 
-public class potenciaException extends ArithmeticException {
+public class PotenciaException extends ArithmeticException {
 
-	public potenciaException(String mensaje) {
+	public PotenciaException(String mensaje) {
 	        super(mensaje);
 	    }
 }
