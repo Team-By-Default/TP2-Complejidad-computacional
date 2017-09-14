@@ -15,13 +15,13 @@ public class Polinomio {
 	}
 	
 	/* Antes de empezar a trabajar con una función, anotemos en un comentario al lado quién la va a hacer
-	double evaluarMSucesivas (double x) {} //Ale
-	double evaluarRecursiva (double x) {}
+	double evaluarMSucesivas (double x) {} //Listo
+	double evaluarRecursiva (double x) {} //Listo
 	double evaluarRecursivaPar (double x) {} //Vale
-	double evaluarProgDinamica (double x) {}
-	double evaluarMejorada (double x) {}
-	double evaluarPow (double x) {}
-	double evaluarHorner (double x) {}
+	double evaluarProgDinamica (double x) {} //Dani
+	double evaluarMejorada (double x) {} //Dani
+	double evaluarPow (double x) {} //Lara
+	double evaluarHorner (double x) {} //Lara
 	*/
 	
 	double evaluarMSucesivas(double x) {
@@ -31,6 +31,26 @@ public class Polinomio {
 			pow=pow*x;
 		}
 		return total;	
+	}
+	
+	public double evaluarRecursiva (double x) {
+		double result=0;
+		int n = this.grado;
+		for(int i=0; i<=this.grado; i++) {
+			result += this.coeficientes[i] * potenciaRecursiva(x,n);
+			n--;
+		}
+		return result;
+	}
+	
+	private double potenciaRecursiva(double x, int n) {
+		if(n<0)
+			throw new potenciaException("Potencia negativa");
+		if(n==0)
+			return 1;
+		if(n==1)
+			return x;
+		return x*potenciaRecursiva(x, n-1);
 	}
 	
 	public static void main(String[] args) {
@@ -44,6 +64,12 @@ public class Polinomio {
 		System.out.println(poli.evaluarMSucesivas(3));
 		System.out.println(poli.evaluarMSucesivas(4));
 		//funcionan!
+		
+		//Evaluando recursiva
+		double coef[]= {1,2,3};
+		Polinomio poly = new Polinomio(2,coef);
+		System.out.println(poly.evaluarRecursiva(1));
+		System.out.println(poly.evaluarRecursiva(-1));
 	}
 
 }
