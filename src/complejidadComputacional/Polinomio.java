@@ -8,6 +8,7 @@ public class Polinomio {
 	
 	public Polinomio(int g, double vec[]) { 
 		this.grado=g;
+		this.coeficientes=new double[this.grado+1];
 		for(int i=0;i<=this.grado;i++) {
 			this.coeficientes[i]=vec[i];
 		}
@@ -33,7 +34,16 @@ public class Polinomio {
 	}
 	
 	public static void main(String[] args) {
-
+		//Variables de testeo
+		double vec[]={3,1,-2,0,-10,4};
+		Polinomio poli=new Polinomio(5, vec);
+		//probamos la funcion evaluarMSucesivas
+		System.out.println(poli.evaluarMSucesivas(0));
+		System.out.println(poli.evaluarMSucesivas(1));
+		System.out.println(poli.evaluarMSucesivas(2));
+		System.out.println(poli.evaluarMSucesivas(3));
+		System.out.println(poli.evaluarMSucesivas(4));
+		//funcionan!
 	}
 
 }
