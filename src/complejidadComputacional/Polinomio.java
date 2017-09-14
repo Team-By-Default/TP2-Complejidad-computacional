@@ -45,7 +45,7 @@ public class Polinomio {
 	
 	private double potenciaRecursiva(double x, int n) {
 		if(n<0)
-			throw new potenciaException("Potencia negativa");
+			throw new PotenciaException("Potencia negativa");
 		if(n==0)
 			return 1;
 		if(n==1)
