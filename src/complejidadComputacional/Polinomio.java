@@ -24,7 +24,7 @@ public class Polinomio {
 	double evaluarHorner (double x) {} //Lara
 	*/
 	
-	double evaluarMSucesivas(double x) {
+	public double evaluarMSucesivas(double x) {
 		double pow=1,total=0;
 		for(int i=this.grado;i>=0;i--) {
 			total=total+pow*this.coeficientes[i];
