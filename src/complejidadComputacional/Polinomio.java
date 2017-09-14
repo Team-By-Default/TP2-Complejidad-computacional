@@ -17,7 +17,7 @@ public class Polinomio {
 	/* Antes de empezar a trabajar con una función, anotemos en un comentario al lado quién la va a hacer
 	double evaluarMSucesivas (double x) {} //Listo
 	double evaluarRecursiva (double x) {} //Listo
-	double evaluarRecursivaPar (double x) {} //Vale
+	double evaluarRecursivaPar (double x) {} //Listo
 	double evaluarProgDinamica (double x) {} //Dani
 	double evaluarMejorada (double x) {} //Dani
 	double evaluarPow (double x) {} //Lara
