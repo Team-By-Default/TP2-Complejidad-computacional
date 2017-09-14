@@ -12,7 +12,7 @@ public class BinomioDeNewton {
 	}
 	
 	//Metodos a desarrollar
-
+	//idk
 	
 	private static int combinatoria(int n,int p) {
 		if(p<n)
