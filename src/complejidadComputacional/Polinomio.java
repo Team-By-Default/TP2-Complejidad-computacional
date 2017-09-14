@@ -73,6 +73,21 @@ public class Polinomio {
 		return x*potenciaRecursivaPar(x, n-1);
 	}
 	
+	public double evaluarPow (double x) {
+		double result=0;
+		for(int i=0; i<=this.grado; i++) {
+			result += this.coeficientes[i] * Math.pow(x,this.grado-i);
+		}
+		return result;
+	}
+	
+    public double evaluarHorner (double x){ 
+        double result = 0;
+        for (int i = this.grado; i >= 0; i--)
+            result = this.coeficientes[i] + (x * result);
+        return result;
+    }
+	
 	public static void main(String[] args) {
 		//Variables de testeo
 		double vec[]={3,1,-2,0,-10,4};
