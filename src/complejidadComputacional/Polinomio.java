@@ -20,20 +20,20 @@ public class Polinomio {
 		double result=0;
 		int n = this.grado;
 		for(int i=0; i<=this.grado; i++) {
-			result += this.coeficientes[i] * potencia(x,n);
+			result += this.coeficientes[i] * potenciaRecursiva(x,n);
 			n--;
 		}
 		return result;
 	}
 	
-	private double potencia(double x, int n) {
+	private double potenciaRecursiva(double x, int n) {
 		if(n<0)
 			throw new potenciaException("Potencia negativa");
 		if(n==0)
 			return 1;
 		if(n==1)
 			return x;
-		return x*potencia(x, n-1);
+		return x*potenciaRecursiva(x, n-1);
 	}
 	
 	/*double evaluarRecursivaPar (double x) {
