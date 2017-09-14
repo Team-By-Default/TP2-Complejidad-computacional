@@ -20,8 +20,8 @@ public class Polinomio {
 	double evaluarRecursivaPar (double x) {} //Listo
 	double evaluarProgDinamica (double x) {} //Dani
 	double evaluarMejorada (double x) {} //Dani
-	double evaluarPow (double x) {} //Lara
-	double evaluarHorner (double x) {} //Lara
+	double evaluarPow (double x) {} //Listo
+	double evaluarHorner (double x) {} //Listo
 	*/
 	
 	public double evaluarMSucesivas(double x) {
