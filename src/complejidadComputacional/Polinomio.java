@@ -18,8 +18,8 @@ public class Polinomio {
 	double evaluarMSucesivas (double x) {} //Listo
 	double evaluarRecursiva (double x) {} //Listo
 	double evaluarRecursivaPar (double x) {} //Listo
-	double evaluarProgDinamica (double x) {} //Dani
-	double evaluarMejorada (double x) {} //Dani
+	double evaluarProgDinamica (double x) {} //Listo
+	double evaluarMejorada (double x) {} //Listo
 	double evaluarPow (double x) {} //Listo
 	double evaluarHorner (double x) {} //Listo
 	*/
@@ -69,6 +69,52 @@ public class Polinomio {
 		if(n%2 == 0)
 			return potenciaRecursivaPar(x*x, n/2);
 		return x*potenciaRecursivaPar(x, n-1);
+	}
+	
+	public double evaluarProgDinamica (double x ) {
+		
+		if(this.grado<0)
+			throw new PotenciaException("Potencia negativa");
+		
+		int n = this.grado;
+		double result[]=new double[this.grado+1];
+		double total = 0;
+		
+		for(int i=0; i<=this.grado; i++) {
+			result[i] += this.coeficientes[i];
+			for(int j = 0; j < n; j++) {
+				result[i] = result[i] * x;
+			}
+			n--;
+		}
+		
+		for(int i=0; i<=this.grado; i++) {
+			total += result[i];
+		}
+		
+		return total;
+	}
+	
+	double evaluarMejorada (double x ) {
+		
+		if(this.grado<0)
+			throw new PotenciaException("Potencia negativa");
+		
+		int n = this.grado;
+		double result = 0;
+		double total = 0;
+		
+		for(int i=0; i<=this.grado; i++) {
+			result += this.coeficientes[i];
+			for(int j = 0; j < n; j++) {
+				result = result * x;
+			}
+			total += result;
+			result = 0;
+			n--;
+		}
+		
+		return total;
 	}
 	
 	public double evaluarPow (double x) {
