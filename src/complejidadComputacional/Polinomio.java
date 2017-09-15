@@ -87,17 +87,17 @@ public class Polinomio {
     }
 	
 	public static void main(String[] args) {
-		//Variables de testeo
-		double vec[]={3,1,-2,0,-10,4};
-		Polinomio poli=new Polinomio(5, vec);
-		//probamos la funcion evaluarMSucesivas
-		System.out.println("4 vs " + poli.evaluarRecursivaPar(0));
-		System.out.println("-4 vs " + poli.evaluarRecursivaPar(1));
-		System.out.println("80 vs " + poli.evaluarRecursivaPar(2));
-		System.out.println("730 vs " + poli.evaluarRecursivaPar(3));
-		System.out.println("3164 vs " + poli.evaluarRecursivaPar(4));
-		System.out.println("14 vs " + poli.evaluarRecursivaPar(-1));
-		//funcionan!
+		//Casos de prueba
+		System.out.println("Resul\tSuces\tRecu\tRecuPar\tPow\tHorner");
+		//Grado 0
+		double vec1[]={10};
+		Polinomio poli = new Polinomio(0, vec1);
+		double x = 0;
+		System.out.println("10\t" + poli.evaluarMSucesivas(x) + "\t" + poli.evaluarRecursiva(x) + "\t" + poli.evaluarRecursivaPar(x) + "\t" + poli.evaluarPow(x) + "\t" + poli.evaluarHorner(x));
+		
+		double vec5[]= {32767,-32770,1.79769313486231570E+308 };
+		Polinomio poli5 = new Polinomio(2,vec5);
+		System.out.println("1.79769313486231570E+308 vs " + poli5.evaluarMSucesivas(1));
 	}
 
 }
