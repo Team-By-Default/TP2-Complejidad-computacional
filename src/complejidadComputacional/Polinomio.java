@@ -48,8 +48,6 @@ public class Polinomio {
 			throw new PotenciaException("Potencia negativa");
 		if(n==0)
 			return 1;
-		if(n==1)
-			return x;
 		return x*potenciaRecursiva(x, n-1);
 	}
 	
