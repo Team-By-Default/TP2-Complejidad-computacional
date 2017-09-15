@@ -73,16 +73,29 @@ public class Polinomio {
 		return x*potenciaRecursivaPar(x, n-1);
 	}
 	
+	
+	
 	public double evaluarProgDinamica (double x ) {
+		
+		if(this.grado<0)
+			throw new PotenciaException("Potencia negativa");
+		
 		int n = this.grado;
-		double []result = new double [this.grado];
+		double result[]=new double[this.grado+1];
 		double total = 0;
+		
 		for(int i=0; i<=this.grado; i++) {
-			result[i] = this.coeficientes[i] * potenciaRecursivaPar(x,n);
+			result[i] += this.coeficientes[i];
+			for(int j = 0; j < n; j++) {
+				result[i] = result[i] * x;
+			}
 			n--;
 		}
-		for(int i=0; i<=this.grado; i++)
+		
+		for(int i=0; i<=this.grado; i++) {
 			total += result[i];
+		}
+		
 		return total;
 	}
 	
@@ -91,12 +104,14 @@ public class Polinomio {
 		double vec[]={3,1,-2,0,-10,4};
 		Polinomio poli=new Polinomio(5, vec);
 		//probamos la funcion evaluarMSucesivas
+		
 		System.out.println("4 vs " + poli.evaluarRecursivaPar(0));
 		System.out.println("-4 vs " + poli.evaluarRecursivaPar(1));
 		System.out.println("80 vs " + poli.evaluarRecursivaPar(2));
 		System.out.println("730 vs " + poli.evaluarRecursivaPar(3));
 		System.out.println("3164 vs " + poli.evaluarRecursivaPar(4));
 		System.out.println("14 vs " + poli.evaluarRecursivaPar(-1));
+		
 		System.out.println("4 vs " + poli.evaluarProgDinamica(0));
 		System.out.println("-4 vs " + poli.evaluarProgDinamica(1));
 		System.out.println("80 vs " + poli.evaluarProgDinamica(2));
