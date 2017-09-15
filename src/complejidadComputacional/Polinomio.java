@@ -126,12 +126,12 @@ public class Polinomio {
 	}
 	
     public double evaluarHorner (double x){ 
-        double result = 0;
-        for (int i = this.grado; i >= 0; i--)
-            result = this.coeficientes[i] + (x * result);
+        double result=0;
+        for (int i = 0; i<=this.grado; i++)
+            result = this.coeficientes[i]+(x*result);
         return result;
     }
-	
+    	
 	public static void main(String[] args) {
 		//Casos de prueba
 		System.out.println("Resul\tSuces\tRecu\tRecuPar\tDinam\tMejor\tPow\tHorner");
