@@ -9,6 +9,12 @@ public class Factorial {
 		this.guardados = new ArrayList<Integer>();
 	}
 	
+	public static int recursiva(int n) {
+		if(n==0||n==1)
+			return 1;
+		return Factorial.recursiva(n-1)*n;
+	}
+	
 	public static int ale(int n) {
 		if(n<0)
 			throw new FactorialException("Factorial negativo");

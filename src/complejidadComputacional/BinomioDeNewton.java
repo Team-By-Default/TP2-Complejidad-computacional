@@ -31,6 +31,17 @@ public class BinomioDeNewton {
 		return aux;
 	}
 	
+	public double obtenerCoeficienteDelTerminoKRecursiva(int k, int n) {//Me sangró el alma escribiendo esto
+		return Combinatoria.recursiva(n, k)*Potencia.recursiva(a, k)*Potencia.recursiva(b, n-k); 
+	}
+	
+	public double[] obtenerCoeficientesKRecursiva(int n) {//Si antes me sangró el alma, ahora sangra cada celula de mi cuerpo
+		double aux[]=new double[n+1];
+		for(int i=0;i<=n;i++)
+			aux[i]=this.obtenerCoeficienteDelTerminoKRecursiva(i,n);
+		return aux;
+	}
+	
 	//Programación dinámica
 	public double[] todosCoefDinamica(int n) {
 		double vec[] = new double[n+1];
@@ -56,10 +67,10 @@ public class BinomioDeNewton {
 		}
 	
 	public static void main(String args[]) {
-		System.out.println("Ale\tDin");
+		System.out.println("Ale\tDin\tRecur");
 		BinomioDeNewton bin=new BinomioDeNewton(2,3);
 		for(int i=5; i>=0; i--)
-			System.out.println(bin.obtenerCoeficienteDelTerminoK(i, 5) + "\t" + bin.coefKDinamica(i, 5));
+			System.out.println(bin.obtenerCoeficienteDelTerminoK(i, 5) + "\t" + bin.coefKDinamica(i, 5) + "\t" + bin.obtenerCoeficienteDelTerminoKRecursiva(i, 5));
 		
 		double lista[]=bin.obtenerCoeficientesK(5);
 		System.out.print("Ale: " + lista[0]);
@@ -67,6 +78,10 @@ public class BinomioDeNewton {
 			System.out.print(" + "+lista[i]+"X^"+i);
 		lista=bin.todosCoefDinamica(5);
 		System.out.print("\nDin: " + lista[0]);
+		for(int i=1;i<=5;i++)
+			System.out.print(" + "+lista[i]+"X^"+i);
+		lista=bin.obtenerCoeficientesKRecursiva(5);
+		System.out.print("\nRec: " + lista[0]);
 		for(int i=1;i<=5;i++)
 			System.out.print(" + "+lista[i]+"X^"+i);
 	}
