@@ -44,7 +44,14 @@ public class BinomioDeNewton {
 	}
 	
 	//Programación dinámica
-	public double coefKPrograDinamica(int k, int n) {
+	public double[] todosCoefDinamica(int n) {
+		double vec[] = new double[n+1];
+		for (int i=0; i<=n; i++)
+			vec[i] = coefKDinamica(i, n);
+		return vec;
+	}
+	
+	public double coefKDinamica(int k, int n) {
 		return combinatoriaDinamica(n, k) * potenciaDinamica(this.a, k) * potenciaDinamica(this.b, n-k);
 	}
 	
@@ -74,11 +81,15 @@ public class BinomioDeNewton {
 		System.out.println("Ale\tDin");
 		BinomioDeNewton bin=new BinomioDeNewton(2,3);
 		for(int i=5; i>=0; i--)
-			System.out.println(bin.obtenerCoeficienteDelTerminoK(i, 5) + "\t" + bin.coefKPrograDinamica(i, 5));
+			System.out.println(bin.obtenerCoeficienteDelTerminoK(i, 5) + "\t" + bin.coefKDinamica(i, 5));
 		
 		double lista[]=bin.obtenerCoeficientesK(5);
 		System.out.print("Ale: " + lista[0]);
 		for(int i=1;i<=5;i++)
-			System.out.print("+"+lista[i]+"X^"+i);
+			System.out.print(" + "+lista[i]+"X^"+i);
+		lista=bin.todosCoefDinamica(5);
+		System.out.print("\nDin: " + lista[0]);
+		for(int i=1;i<=5;i++)
+			System.out.print(" + "+lista[i]+"X^"+i);
 	}
 }
