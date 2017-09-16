@@ -1,7 +1,7 @@
 package matematica;
 
 public class Combinatoria {
-	Factorial fac;
+	private Factorial fac;
 	public Combinatoria() {
 		fac = new Factorial();
 	}
