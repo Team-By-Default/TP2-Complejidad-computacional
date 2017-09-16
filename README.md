@@ -6,3 +6,4 @@ LOG:
 -En el Master añadí evaluarRecursiva y potenciaRecursiva, que hacía falta (Vale)
 -En el Master añadí potenciaException (Vale)
 -En el Master añadí BinomioDeNewton con sus atributos, constructor y dos funciones estaticas privadas, combinatoria y factorial (Alexis)
+-En el Master añadí dos metodos a BinomioDeNewton, los cuales no usan recursividad, pero tampoco programación dinamica (Alexis)
