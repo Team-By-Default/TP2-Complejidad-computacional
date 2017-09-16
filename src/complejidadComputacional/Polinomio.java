@@ -133,6 +133,7 @@ public class Polinomio {
     }
     	
 	public static void main(String[] args) {
+		
 		//Casos de prueba
 		System.out.println("Resul\tSuces\tRecu\tRecuPar\tDinam\tMejor\tPow\tHorner");
 		
@@ -145,6 +146,7 @@ public class Polinomio {
 		//Grado 1
 		double vec2[] = {1, 5};
 		poli = new Polinomio(1,vec2);
+		
 		System.out.println("5\t" + poli.evaluarMSucesivas(x) + "\t" + poli.evaluarRecursiva(x) + "\t" + poli.evaluarRecursivaPar(x) + "\t" + poli.evaluarProgDinamica(x) + "\t" + poli.evaluarMejorada(x) + "\t" + poli.evaluarPow(x) + "\t" + poli.evaluarHorner(x));
 		x=2;
 		System.out.println("7\t" + poli.evaluarMSucesivas(x) + "\t" + poli.evaluarRecursiva(x) + "\t" + poli.evaluarRecursivaPar(x) + "\t" + poli.evaluarProgDinamica(x) + "\t" + poli.evaluarMejorada(x) + "\t" + poli.evaluarPow(x) + "\t" + poli.evaluarHorner(x));
@@ -153,6 +155,14 @@ public class Polinomio {
 		x=1.5;
 		System.out.println("6.5\t" + poli.evaluarMSucesivas(x) + "\t" + poli.evaluarRecursiva(x) + "\t" + poli.evaluarRecursivaPar(x) + "\t" + poli.evaluarProgDinamica(x) + "\t" + poli.evaluarMejorada(x) + "\t" + poli.evaluarPow(x) + "\t" + poli.evaluarHorner(x));
 		
+		//Prueba de velocidad
+		int intentos = 1000000;
+		x=10;
+        long begTime = System.currentTimeMillis();
+        for (int i = 0; i < intentos; ++i) 
+        	poli.evaluarHorner(x);
+        long endTime = System.currentTimeMillis();
+        System.out.printf("Total time for %10d tries: %d ms\n", intentos, (endTime-begTime));
 		/*double vec5[]= {32767,-32770,1.79769313486231570E+308 };
 		Polinomio poli5 = new Polinomio(2,vec5);
 		System.out.println("1.79769313486231570E+308 vs " + poli5.evaluarMSucesivas(1));*/
