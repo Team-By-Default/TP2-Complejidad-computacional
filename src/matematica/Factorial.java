@@ -3,7 +3,7 @@ package matematica;
 import java.util.ArrayList;
 
 public class Factorial {
-	ArrayList<Integer> guardados;
+	private ArrayList<Integer> guardados;
 	
 	public Factorial() {
 		this.guardados = new ArrayList<Integer>();
