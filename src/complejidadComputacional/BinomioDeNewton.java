@@ -2,11 +2,11 @@ package complejidadComputacional;
 
 public class BinomioDeNewton {
 
-	private int a;
-	private int b;
+	private double a;
+	private double b;
 	//La forma del binomio es: (ax+b)^n
 	
-	public BinomioDeNewton(int a,int b) {
+	public BinomioDeNewton(double a, double b) {
 		this.a=a;
 		this.b=b;
 	}
@@ -43,16 +43,41 @@ public class BinomioDeNewton {
 		return fac;
 	}
 	
+	//Programación dinámica
+	public double coefKPrograDinamica(int k, int n) {
+		return combinatoriaDinamica(n, k) * potenciaDinamica(this.a, k) * potenciaDinamica(this.b, n-k);
+	}
+	
+	private int combinatoriaDinamica(int n, int p) {
+		if(n<p)
+			throw new CombinatoriaException("p menor a n");
+		return factorialDinamico(n) / (factorialDinamico(p) * factorialDinamico(n-p));
+	}
+	
+	private int factorialDinamico(int n) {
+		int[] vec = new int[n+1];
+		vec[0]=1;
+		for(int i=1; i<=n; i++)
+			vec[i] = i*vec[i-1];
+		return vec[n];
+	}
+	
+	private double potenciaDinamica(double base, int indice) {
+		double[] vec = new double[indice+1];
+		vec[0]=1;
+		for(int i=1; i<= indice; i++)
+			vec[i] = base * vec[i-1];
+		return vec[indice];
+	}
+	
 	public static void main(String args[]) {
+		System.out.println("Ale\tDin");
 		BinomioDeNewton bin=new BinomioDeNewton(2,3);
-		System.out.println(bin.obtenerCoeficienteDelTerminoK(5, 5));
-		System.out.println(bin.obtenerCoeficienteDelTerminoK(4, 5));
-		System.out.println(bin.obtenerCoeficienteDelTerminoK(3, 5));
-		System.out.println(bin.obtenerCoeficienteDelTerminoK(2, 5));
-		System.out.println(bin.obtenerCoeficienteDelTerminoK(1, 5));
-		System.out.println(bin.obtenerCoeficienteDelTerminoK(0, 5));
+		for(int i=5; i>=0; i--)
+			System.out.println(bin.obtenerCoeficienteDelTerminoK(i, 5) + "\t" + bin.coefKPrograDinamica(i, 5));
+		
 		double lista[]=bin.obtenerCoeficientesK(5);
-		System.out.print(lista[0]);
+		System.out.print("Ale: " + lista[0]);
 		for(int i=1;i<=5;i++)
 			System.out.print("+"+lista[i]+"X^"+i);
 	}
