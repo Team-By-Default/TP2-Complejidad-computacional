@@ -1,4 +1,4 @@
-package complejidadComputacional;
+package matematica;
 
 public class CombinatoriaException extends ArithmeticException {
 

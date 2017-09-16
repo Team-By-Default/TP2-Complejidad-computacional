@@ -1,5 +1,8 @@
 package complejidadComputacional;
 
+import matematica.Potencia;
+import matematica.PotenciaException;
+
 public class Polinomio {
 	
 	private int grado ;
@@ -37,38 +40,20 @@ public class Polinomio {
 		double result=0;
 		int n = this.grado;
 		for(int i=0; i<=this.grado; i++) {
-			result += this.coeficientes[i] * potenciaRecursiva(x,n);
+			result += this.coeficientes[i] * Potencia.recursiva(x,n);
 			n--;
 		}
 		return result;
-	}
-	
-	private double potenciaRecursiva(double x, int n) {
-		if(n<0)
-			throw new PotenciaException("Potencia negativa");
-		if(n==0)
-			return 1;
-		return x*potenciaRecursiva(x, n-1);
 	}
 	
 	public double evaluarRecursivaPar (double x) {
 		double result=0;
 		int n = this.grado;
 		for(int i=0; i<=this.grado; i++) {
-			result += this.coeficientes[i] * potenciaRecursivaPar(x,n);
+			result += this.coeficientes[i] * Potencia.recursivaPar(x,n);
 			n--;
 		}
 		return result;
-	}
-	
-	public double potenciaRecursivaPar(double x, int n) {
-		if(n<0)
-			throw new PotenciaException("Potencia negativa");
-		if(n==0)
-			return 1;
-		if(n%2 == 0)
-			return potenciaRecursivaPar(x*x, n/2);
-		return x*potenciaRecursivaPar(x, n-1);
 	}
 	
 	public double evaluarProgDinamica (double x ) {
