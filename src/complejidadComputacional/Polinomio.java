@@ -148,7 +148,8 @@ public class Polinomio {
         	poli.evaluarHorner(x);
         long endTime = System.currentTimeMillis();
         System.out.printf("Total time for %10d tries: %d ms\n", intentos, (endTime-begTime));
-		//Grado 3
+		
+        //Grado 3
 		double vec3[] = {3,0,-1,5.5};
 		poli = new Polinomio(3,vec3);
 		x=0;
@@ -161,27 +162,17 @@ public class Polinomio {
 		System.out.println("14.125\t" + poli.evaluarMSucesivas(x) + "\t" + poli.evaluarRecursiva(x) + "\t" + poli.evaluarRecursivaPar(x) + "\t" + poli.evaluarProgDinamica(x) + "\t" + poli.evaluarMejorada(x) + "\t" + poli.evaluarPow(x) + "\t" + poli.evaluarHorner(x));
 		
 		//Grado de 16 bits
-		double[] vec4 = new double[16777216];
+		double[] vec4 = new double[32768];
 		vec4[0] = 1;
-		vec4[16777215] = 1;
-		poli = new Polinomio(16777215,vec4);
+		vec4[32767] = 1;
+		poli = new Polinomio(32767,vec4);
 		x=1;
 		System.out.println("2\t" + poli.evaluarMSucesivas(x) + "\tDEAD\t" + poli.evaluarRecursivaPar(x) + "\t" + poli.evaluarProgDinamica(x) + "\t" + poli.evaluarMejorada(x) + "\t" + poli.evaluarPow(x) + "\t" + poli.evaluarHorner(x));
 		
-		/*double[] vec4 = new double[16777216];
-		vec4[0] = 1;
-		vec4[16777215] = 1;
-		poli = new Polinomio(16777215,vec4);
-		x=1;
-		//System.out.println("2\t" + poli.evaluarMSucesivas(x) + "\tDEAD\t" + poli.evaluarRecursivaPar(x) + "\t" + poli.evaluarProgDinamica(x) + "\t" + poli.evaluarMejorada(x) + "\t" + poli.evaluarPow(x) + "\t" + poli.evaluarHorner(x));
-		//System.out.println("2\t" + poli.evaluarMSucesivas(x) + "\tDEAD\tSLEEP\t" + poli.evaluarProgDinamica(x) + "\t" + poli.evaluarMejorada(x) + "\t" + poli.evaluarPow(x) + "\t" + poli.evaluarHorner(x));
-		System.out.print("2\t" + poli.evaluarMSucesivas(x));
-		System.out.print("\tDEAD\tSLEEP\tSLEEP\tSLEEP");
-		System.out.print("\t" + poli.evaluarPow(x));*/
+		double vec5[]= {32767,-32770,1.79769313486231570E+308 };
+		poli = new Polinomio(2,vec5);
+		System.out.println("1.79769313486231570E+308\t" + poli.evaluarMSucesivas(x) + "\t" + poli.evaluarRecursiva(x) + "\t" + poli.evaluarRecursivaPar(x) + "\t" + poli.evaluarProgDinamica(x) + "\t" + poli.evaluarMejorada(x) + "\t" + poli.evaluarPow(x) + "\t" + poli.evaluarHorner(x));
 		
-		/*double vec5[]= {32767,-32770,1.79769313486231570E+308 };
-		Polinomio poli5 = new Polinomio(2,vec5);
-		System.out.println("1.79769313486231570E+308 vs " + poli5.evaluarMSucesivas(1));*/
 	}
 
 }
