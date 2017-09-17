@@ -17,16 +17,6 @@ public class Polinomio {
 		}
 	}
 	
-	/* Antes de empezar a trabajar con una función, anotemos en un comentario al lado quién la va a hacer
-	double evaluarMSucesivas (double x) {} //Listo
-	double evaluarRecursiva (double x) {} //Listo
-	double evaluarRecursivaPar (double x) {} //Listo
-	double evaluarProgDinamica (double x) {} //Listo
-	double evaluarMejorada (double x) {} //Listo
-	double evaluarPow (double x) {} //Listo
-	double evaluarHorner (double x) {} //Listo
-	*/
-	
 	public double evaluarMSucesivas(double x) {
 		double pow=1,total=0;
 		for(int i=this.grado;i>=0;i--) {
