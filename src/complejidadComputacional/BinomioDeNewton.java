@@ -102,7 +102,7 @@ public class BinomioDeNewton {
 		System.out.println("Ale\tDin\tDinTD\tRecur");
 		BinomioDeNewton bin=new BinomioDeNewton(2,3);
 		for(int i=5; i>=0; i--)
-			System.out.println(bin.obtenerCoeficienteDelTerminoK(i, 5) + "\t" + bin.coefKDinamica(i, 5)+  "\t" + bin.obtenerCoeficienteDelTerminoKRecursiva(i, 5));
+			System.out.println(bin.obtenerCoeficienteDelTerminoK(i, 5) + "\t" + bin.coefKDinamica(i, 5)+"\t" + bin.coefKDinamicaTD(i, 5)+  "\t" + bin.obtenerCoeficienteDelTerminoKRecursiva(i, 5));
 		
 		double lista[]=bin.obtenerCoeficientesK(5);
 		System.out.print("Ale: " + lista[0]);
