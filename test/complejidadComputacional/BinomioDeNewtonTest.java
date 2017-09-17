@@ -7,14 +7,17 @@ import org.junit.After;
 
 public class BinomioDeNewtonTest {
 
-	
-	int intentos=10000;
+	//int intentos=1000000; //para todos los de calcular el coeficiente k
+	int intentos=1000; //para los de calcular todos los coeficientes
 	long inicio;
 	BinomioDeNewton bin;
 	int nBajo=1,
 		nMedio=15,
 		nAlto=33;
-	
+	double xBajo=10,
+		   xMedio=500,
+		   xAlto=1000;
+	int n=30; //para los de calculo
 	@Before
 	public void SetUp(){
 		bin=new BinomioDeNewton(2,3);
@@ -150,7 +153,7 @@ public class BinomioDeNewtonTest {
 			System.out.print("Coeficiente de K Largo DIN TD: ");
 		}
 	*/
-	
+	/*
 	//CoeficientesK
 		@Test
 		public void pruebaSimpleCoeficientesK() {
@@ -273,7 +276,173 @@ public class BinomioDeNewtonTest {
 			}
 			System.out.print("Coeficientes de K DIN TD Largo: ");
 		}
+	*/
+	
+	//Calculo Binomio Simple
+	@Test
+	public void pruebaSimpleCalculo() {
+		inicio = System.currentTimeMillis();
+        
+		for(int j=0;j<intentos;j++){
+        	for (int i = 0; i < xBajo; ++i) 
+        		bin.calculoBinomioSimple(n, i);
+        }
+		System.out.print("Calculo por Binomio con x Simple: ");
 		
+	}
+	
+	@Test
+	public void pruebaMedioCalculo() {
+		inicio = System.currentTimeMillis();
+        for(int j=0;j<intentos;j++){
+        	for (int i = 0; i < xMedio; ++i) 
+        		bin.calculoBinomioSimple(n, i);
+        }
+		System.out.print("Calculo por Binomio con x Medio: ");
+	}
+	
+	@Test
+	public void pruebaLargoCalculo() {
+		inicio = System.currentTimeMillis();
+        for(int j=0;j<intentos;j++){
+        	for (int i = 0; i < xAlto; ++i) 
+        		bin.calculoBinomioSimple(n,i);
+        }
+		System.out.print("Calculo por Binomio con x Largo: ");
+	}
+	
+	//Calculo por Polinomio Simple
+	@Test
+	public void pruebaSimpleCalculoPoli() {
+		inicio = System.currentTimeMillis();
+        
+		for(int j=0;j<intentos;j++){
+        	for (int i = 0; i < xBajo; ++i) 
+        		bin.calculoPorPolinomioSimple(n, i);
+        }
+		System.out.print("Calculo por Polinomio con x Simple: ");
+		
+	}
+	
+	@Test
+	public void pruebaMedioCalculoPoli() {
+		inicio = System.currentTimeMillis();
+        for(int j=0;j<intentos;j++){
+        	for (int i = 0; i < xMedio; ++i) 
+        		bin.calculoPorPolinomioSimple(n, i);
+        }
+		System.out.print("Calculo por Polinomio con x Medio: ");
+	}
+	
+	@Test
+	public void pruebaLargoCalculoPoli() {
+		inicio = System.currentTimeMillis();
+        for(int j=0;j<intentos;j++){
+        	for (int i = 0; i < xAlto; ++i) 
+        		bin.calculoPorPolinomioSimple(n,i);
+        }
+		System.out.print("Calculo por Polinomio con x Largo: ");
+	}
+	
+	//Calculo por Polinomio Recursiva
+	@Test
+	public void pruebaSimpleCalculoPoliRec() {
+		inicio = System.currentTimeMillis();
+        
+		for(int j=0;j<intentos;j++){
+        	for (int i = 0; i < xBajo; ++i) 
+        		bin.calculoPorPolinomioRecursiva(n, i);
+        }
+		System.out.print("Calculo por Polinomio REC con x Simple: ");
+		
+	}
+	
+	@Test
+	public void pruebaMedioCalculoPoliRec() {
+		inicio = System.currentTimeMillis();
+        for(int j=0;j<intentos;j++){
+        	for (int i = 0; i < xMedio; ++i) 
+        		bin.calculoPorPolinomioRecursiva(n, i);
+        }
+		System.out.print("Calculo por Polinomio REC con x Medio: ");
+	}
+	
+	@Test
+	public void pruebaLargoCalculoPoliRec() {
+		inicio = System.currentTimeMillis();
+        for(int j=0;j<intentos;j++){
+        	for (int i = 0; i < xAlto; ++i) 
+        		bin.calculoPorPolinomioRecursiva(n,i);
+        }
+		System.out.print("Calculo por Polinomio REC con x Largo: ");
+	}
+	
+	//Calculo por Polinomio Dinamica
+	@Test
+	public void pruebaSimpleCalculoPoliDin() {
+		inicio = System.currentTimeMillis();
+        
+		for(int j=0;j<intentos;j++){
+        	for (int i = 0; i < xBajo; ++i) 
+        		bin.calculoPorPolinomioDinamica(n, i);
+        }
+		System.out.print("Calculo por Polinomio DIN con x Simple: ");
+		
+	}
+	
+	@Test
+	public void pruebaMedioCalculoPoliDin() {
+		inicio = System.currentTimeMillis();
+        for(int j=0;j<intentos;j++){
+        	for (int i = 0; i < xMedio; ++i) 
+        		bin.calculoPorPolinomioDinamica(n, i);
+        }
+		System.out.print("Calculo por Polinomio DIN con x Medio: ");
+	}
+	
+	@Test
+	public void pruebaLargoCalculoPoliDin() {
+		inicio = System.currentTimeMillis();
+        for(int j=0;j<intentos;j++){
+        	for (int i = 0; i < xAlto; ++i) 
+        		bin.calculoPorPolinomioDinamica(n,i);
+        }
+		System.out.print("Calculo por Polinomio DIN con x Largo: ");
+	}
+	
+	//Calculo por Polinomio Dinamica Top Down
+	@Test
+	public void pruebaSimpleCalculoPoliDinTD() {
+		inicio = System.currentTimeMillis();
+        
+		for(int j=0;j<intentos;j++){
+        	for (int i = 0; i < xBajo; ++i) 
+        		bin.calculoPorPolinomioDinamicaTD(n, i);
+        }
+		System.out.print("Calculo por Polinomio DIN TD con x Simple: ");
+		
+	}
+	
+	@Test
+	public void pruebaMedioCalculoPoliDinTD() {
+		inicio = System.currentTimeMillis();
+        for(int j=0;j<intentos;j++){
+        	for (int i = 0; i < xMedio; ++i) 
+        		bin.calculoPorPolinomioDinamicaTD(n, i);
+        }
+		System.out.print("Calculo por Polinomio DIN TD con x Medio: ");
+	}
+	
+	@Test
+	public void pruebaLargoCalculoPoliDinTD() {
+		inicio = System.currentTimeMillis();
+        for(int j=0;j<intentos;j++){
+        	for (int i = 0; i < xAlto; ++i) 
+        		bin.calculoPorPolinomioDinamicaTD(n,i);
+        }
+		System.out.print("Calculo por Polinomio DIN TD con x Largo: ");
+	}
+	
 	@After
 	public void end() {
 		System.out.println((System.currentTimeMillis()-inicio) + "ms");
