@@ -23,8 +23,8 @@ public class BinomioDeNewton {
 	
 	public double[] obtenerCoeficientesK(int n) {
 		double aux[]=new double[n+1];
-		for(int i=0;i<=n;i++)
-			aux[i]=Combinatoria.ale(n, i)*Math.pow(a, i)*Math.pow(b, n-i);
+		for(int i=n;i>=0;i--)
+			aux[i]=Combinatoria.ale(n, n-i)*Math.pow(a, n-i)*Math.pow(b, i);
 		return aux;
 	}
 	
@@ -35,16 +35,16 @@ public class BinomioDeNewton {
 	
 	public double[] obtenerCoeficientesKRecursiva(int n) {//Si antes me sangr� el alma, ahora sangra cada celula de mi cuerpo
 		double aux[]=new double[n+1];
-		for(int i=0;i<=n;i++)
-			aux[i]=this.obtenerCoeficienteDelTerminoKRecursiva(i,n);
+		for(int i=n;i>=0;i--)
+			aux[i]=this.obtenerCoeficienteDelTerminoKRecursiva(n-i,n);
 		return aux;
 	}
 	
 	//Programaci�n din�mica
 	public double[] todosCoefDinamica(int n) {
 		double vec[] = new double[n+1];
-		for (int i=0; i<=n; i++)
-			vec[i] = coefKDinamica(i, n);
+		for(int i=n;i>=0;i--)
+			vec[i] = coefKDinamica(n-i, n);
 		return vec;
 	}
 	
@@ -55,8 +55,8 @@ public class BinomioDeNewton {
 	//Programaci�n din�mica top down
 	public double[] todosCoefDinamicaTD(int n) {
 		double vec[] = new double[n+1];
-		for (int i=0; i<=n; i++)
-			vec[i] = coefKDinamicaTD(i, n);
+		for(int i=n;i>=0;i--)
+			vec[i] = coefKDinamicaTD(n-i, n);
 		return vec;
 	}
 		
@@ -102,7 +102,7 @@ public class BinomioDeNewton {
 		System.out.println("Ale\tDin\tDinTD\tRecur");
 		BinomioDeNewton bin=new BinomioDeNewton(2,3);
 		for(int i=5; i>=0; i--)
-			System.out.println(bin.obtenerCoeficienteDelTerminoK(i, 5) + "\t" + bin.coefKDinamica(i, 5)+"\t" + bin.coefKDinamicaTD(i, 5)+  "\t" + bin.obtenerCoeficienteDelTerminoKRecursiva(i, 5));
+			System.out.println(bin.obtenerCoeficienteDelTerminoK(i, 5) + "\t" + bin.coefKDinamica(i, 5)+"\t" + bin.coefKDinamicaTD(i, 5)+"\t" + bin.obtenerCoeficienteDelTerminoKRecursiva(i, 5));
 		
 		double lista[]=bin.obtenerCoeficientesK(5);
 		System.out.print("Ale: " + lista[0]);
@@ -115,7 +115,7 @@ public class BinomioDeNewton {
 			System.out.print(" + "+lista[i]+"X^"+i);
 		
 		lista=bin.todosCoefDinamicaTD(5);
-		System.out.print("\nDinTD: " + lista[0]);
+		System.out.print("\nDTD: " + lista[0]);
 		for(int i=1;i<=5;i++)
 			System.out.print(" + "+lista[i]+"X^"+i);
 		
@@ -124,12 +124,12 @@ public class BinomioDeNewton {
 		for(int i=1;i<=5;i++)
 			System.out.print(" + "+lista[i]+"X^"+i);
 		
+		System.out.println();
 		System.out.println("Calculo:");
 		System.out.println("Simple: "+bin.calculoBinomioSimple(5, 10));
-		System.out.println("Simple: "+bin.calculoPorPolinomioSimple(5, 10));
-		System.out.println("Simple: "+bin.calculoPorPolinomioRecursiva(5, 10));
-		System.out.println("Simple: "+bin.calculoPorPolinomioDinamica(5, 10));
-		System.out.println("Simple: "+bin.calculoPorPolinomioDinamicaTD(5, 10));
-		
+		System.out.println("PolinomioSimple: "+bin.calculoPorPolinomioSimple(5, 10));
+		System.out.println("PolinomioRecursiva: "+bin.calculoPorPolinomioRecursiva(5, 10));
+		System.out.println("PolinomioDinamica: "+bin.calculoPorPolinomioDinamica(5, 10));
+		System.out.println("PolinomioDinamicaTD: "+bin.calculoPorPolinomioDinamicaTD(5, 10));
 	}
 }
