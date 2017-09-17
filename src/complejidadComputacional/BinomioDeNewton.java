@@ -108,15 +108,27 @@ public class BinomioDeNewton {
 		System.out.print("Ale: " + lista[0]);
 		for(int i=1;i<=5;i++)
 			System.out.print(" + "+lista[i]+"X^"+i);
+		
 		lista=bin.todosCoefDinamica(5);
 		System.out.print("\nDin: " + lista[0]);
 		for(int i=1;i<=5;i++)
 			System.out.print(" + "+lista[i]+"X^"+i);
+		
+		lista=bin.todosCoefDinamicaTD(5);
+		System.out.print("\nDinTD: " + lista[0]);
+		for(int i=1;i<=5;i++)
+			System.out.print(" + "+lista[i]+"X^"+i);
+		
 		lista=bin.obtenerCoeficientesKRecursiva(5);
 		System.out.print("\nRec: " + lista[0]);
 		for(int i=1;i<=5;i++)
 			System.out.print(" + "+lista[i]+"X^"+i);
 		
-		
+		System.out.println("Calculo:");
+		System.out.println("Simple: "+bin.calculoBinomioSimple(5, 10));
+		System.out.println("Simple: "+bin.calculoPorPolinomioSimple(5, 10));
+		System.out.println("Simple: "+bin.calculoPorPolinomioRecursiva(5, 10));
+		System.out.println("Simple: "+bin.calculoPorPolinomioDinamica(5, 10));
+		System.out.println("Simple: "+bin.calculoPorPolinomioDinamicaTD(5, 10));
 	}
 }
