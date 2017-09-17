@@ -19,40 +19,63 @@ public class PolinomioTest {
 		simple=new Polinomio(2,vecSimple);
 		complejo=new Polinomio(10,vecComplejo);
 		largo=new Polinomio(40,vecLargo);
-		
 	}
-
+	//Recursiva
 	@Test
-	public void pruebaSimpleFactorial() {
+	public void pruebaSimpleRecursiva() {
 		start = System.currentTimeMillis();
 		for(int i=0;i<1000000;i++) {
 			simple.evaluarRecursiva(i);
 		}
 		System.out.print("Recursiva Simple: ");
-		System.out.println(System.currentTimeMillis() - start + "ms");
+		
 	}
 	
 	@Test
-	public void pruebaComplejoFactorial() {
+	public void pruebaComplejoRecursiva() {
 		start = System.currentTimeMillis();
 		for(int i=0;i<1000000;i++)
 			complejo.evaluarRecursiva(i);
 		System.out.print("Recursiva Complejo: ");
-		System.out.println(System.currentTimeMillis() - start + "ms");
 	}
 	
 	@Test
-	public void pruebaLargoFactorial() {
+	public void pruebaLargoRecursiva() {
 		start = System.currentTimeMillis();
 		for(int i=0;i<1000000;i++)
 			largo.evaluarRecursiva(i);
 		System.out.print("Recursiva Largo: ");
-		System.out.println(System.currentTimeMillis() - start + "ms");
+	}
+	//End Recursiva
+	
+	//RecursivaPar
+	@Test
+	public void pruebaSimpleRecursivaPar() {
+		start = System.currentTimeMillis();
+		for(int i=0;i<1000000;i++) {
+			simple.evaluarRecursivaPar(i);
+		}
+		System.out.print("RecursivaPar Simple: ");
 	}
 	
+	@Test
+	public void pruebaComplejoRecursivaPar() {
+		start = System.currentTimeMillis();
+		for(int i=0;i<1000000;i++)
+			complejo.evaluarRecursivaPar(i);
+		System.out.print("RecursivaPar Complejo: ");
+	}
+	
+	@Test
+	public void pruebaLargoRecursivaPar() {
+		start = System.currentTimeMillis();
+		for(int i=0;i<1000000;i++)
+			largo.evaluarRecursivaPar(i);
+		System.out.print("RecursivaPar Largo: ");
+	}
 	@After
 	public void end() {
-		
+		System.out.println(System.currentTimeMillis() - start + "ms");
 	}
 	    
 	    
