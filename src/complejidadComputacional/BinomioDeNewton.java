@@ -15,17 +15,10 @@ public class BinomioDeNewton {
 		this.b=b;
 		this.comb = new Combinatoria();
 	}
-	
-	//Metodos a desarrollar
-	//ObtenerCoeficienteDelTerminoK(int k, int n) (Alexis) Esta es la funcion, que usa una combinatoria, que a su vez usa un factorial el cual no es recursivo
-	//obtenerCoeficientesK(int n) (Alexis) Esta es la funcion, que usa una combinatoria, que a su vez usa un factorial el cual no es recursivo
-	
+		
+	//Simple
 	public double obtenerCoeficienteDelTerminoK(int k, int n) {
 		return Combinatoria.ale(n, k)*Math.pow(a, k)*Math.pow(b, n-k);
-	}
-	
-	public double calculoBinomioSimple(int k, double x) {
-		return Potencia.simple(this.a*x+this.b,k);
 	}
 	
 	public double[] obtenerCoeficientesK(int n) {
@@ -35,6 +28,7 @@ public class BinomioDeNewton {
 		return aux;
 	}
 	
+	//Recursiva
 	public double obtenerCoeficienteDelTerminoKRecursiva(int k, int n) {//Me sangró el alma escribiendo esto
 		return Combinatoria.recursiva(n, k)*Potencia.recursiva(a, k)*Potencia.recursiva(b, n-k); 
 	}
@@ -59,22 +53,56 @@ public class BinomioDeNewton {
 	}
 	
 	//Programación dinámica top down
-		public double[] todosCoefDinamicaTD(int n) {
-			double vec[] = new double[n+1];
-			for (int i=0; i<=n; i++)
-				vec[i] = coefKDinamicaTD(i, n);
-			return vec;
-		}
+	public double[] todosCoefDinamicaTD(int n) {
+		double vec[] = new double[n+1];
+		for (int i=0; i<=n; i++)
+			vec[i] = coefKDinamicaTD(i, n);
+		return vec;
+	}
 		
-		public double coefKDinamicaTD(int k, int n) {
-			return comb.dinamicaTD(n, k) * Potencia.dinamicaBU(this.a, k) * Potencia.dinamicaBU(this.b, n-k);
-		}
+	public double coefKDinamicaTD(int k, int n) {
+		return comb.dinamicaTD(n, k) * Potencia.dinamicaBU(this.a, k) * Potencia.dinamicaBU(this.b, n-k);
+	}
 	
+	//Calculo
+	public double calculoBinomioSimple(int n, double x) {
+		return Potencia.simple(this.a*x+this.b,n);
+	}
+		
+	public double calculoPorPolinomioSimple(int n,double x) {
+		double vec[];
+		vec=this.obtenerCoeficientesK(n);
+		Polinomio aux=new Polinomio(n,vec);
+		return aux.evaluarMSucesivas(x);
+	}
+		
+	public double calculoPorPolinomioRecursiva(int n,double x) {
+		double vec[];
+		vec=this.obtenerCoeficientesKRecursiva(n);
+		Polinomio aux=new Polinomio(n,vec);
+		return aux.evaluarMSucesivas(x);
+	}
+	
+	public double calculoPorPolinomioDinamica(int n,double x) {
+		double vec[];
+		vec=this.todosCoefDinamica(n);
+		Polinomio aux=new Polinomio(n,vec);
+		return aux.evaluarMSucesivas(x);
+	}
+	
+	public double calculoPorPolinomioDinamicaTD(int n,double x) {
+		double vec[];
+		vec=this.todosCoefDinamicaTD(n);
+		Polinomio aux=new Polinomio(n,vec);
+		return aux.evaluarMSucesivas(x);
+	}
+	
+	//Main de pruebas
 	public static void main(String args[]) {
-		System.out.println("Ale\tDin\tRecur");
+		System.out.println("Ale\tDin\tDinTD\tRecur");
 		BinomioDeNewton bin=new BinomioDeNewton(2,3);
 		for(int i=5; i>=0; i--)
-			System.out.println(bin.obtenerCoeficienteDelTerminoK(i, 5) + "\t" + bin.coefKDinamica(i, 5) + "\t" + bin.obtenerCoeficienteDelTerminoKRecursiva(i, 5));
+			System.out.println(bin.obtenerCoeficienteDelTerminoK(i, 5) + "\t" + bin.coefKDinamica(i, 5)+  "\t" + bin.obtenerCoeficienteDelTerminoKRecursiva(i, 5));
 		
 		double lista[]=bin.obtenerCoeficientesK(5);
 		System.out.print("Ale: " + lista[0]);
@@ -88,5 +116,7 @@ public class BinomioDeNewton {
 		System.out.print("\nRec: " + lista[0]);
 		for(int i=1;i<=5;i++)
 			System.out.print(" + "+lista[i]+"X^"+i);
+		
+		
 	}
 }
