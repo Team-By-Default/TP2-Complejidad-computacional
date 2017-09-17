@@ -7,6 +7,7 @@ public class Factorial {
 	
 	public Factorial() {
 		this.guardados = new ArrayList<Integer>();
+		this.guardados.add(0, Integer.valueOf(1));
 	}
 	
 	public static int recursiva(int n) {
@@ -38,9 +39,16 @@ public class Factorial {
 	public int dinamicoTD(int n) {
 		if(n == 0)
 			return 1;
-		if(this.guardados.size() > n && this.guardados.get(n).intValue() != 0 )
+		if(this.guardados.size() > n && this.guardados.get(n) != null && this.guardados.get(n).intValue() != 0 )
 			return this.guardados.get(n).intValue();
-		this.guardados.add(n, dinamicoTD(n-1));
+		int aux = n * dinamicoTD(n-1);
+		this.guardados.add(n, new Integer(aux));
 		return this.guardados.get(n).intValue();
+	}
+	
+	public static void main(String[] args) {
+		Factorial fac = new Factorial();
+		System.out.println(fac.dinamicoTD(3));
+		System.out.println(fac.dinamicoTD(4));
 	}
 }
