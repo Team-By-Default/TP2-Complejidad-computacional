@@ -7,6 +7,7 @@ import org.junit.Test;
 public class PolinomioTest {
 
 	long start;
+	long end;
 	Polinomio simple;
 	Polinomio complejo;
 	Polinomio largo;
@@ -27,7 +28,8 @@ public class PolinomioTest {
 		for(int i=0;i<1000000;i++) {
 			simple.evaluarRecursiva(i);
 		}
-		System.out.print("Recursiva Simple: ");
+		end = System.currentTimeMillis();
+		System.out.println("Recursiva Simple: " + (end-start) + "ms");
 		
 	}
 	
@@ -36,7 +38,8 @@ public class PolinomioTest {
 		start = System.currentTimeMillis();
 		for(int i=0;i<1000000;i++)
 			complejo.evaluarRecursiva(i);
-		System.out.print("Recursiva Complejo: ");
+		end = System.currentTimeMillis();
+		System.out.println("Recursiva Complejo: " + (end-start) + "ms");
 	}
 	
 	@Test
@@ -44,7 +47,8 @@ public class PolinomioTest {
 		start = System.currentTimeMillis();
 		for(int i=0;i<1000000;i++)
 			largo.evaluarRecursiva(i);
-		System.out.print("Recursiva Largo: ");
+		end = System.currentTimeMillis();
+		System.out.println("Recursiva Largo: " + (end-start) + "ms");
 	}
 	//End Recursiva
 	
@@ -55,7 +59,8 @@ public class PolinomioTest {
 		for(int i=0;i<1000000;i++) {
 			simple.evaluarRecursivaPar(i);
 		}
-		System.out.print("RecursivaPar Simple: ");
+		end = System.currentTimeMillis();
+		System.out.println("RecursivaPar Simple: " + (end-start) + "ms");
 	}
 	
 	@Test
@@ -63,7 +68,8 @@ public class PolinomioTest {
 		start = System.currentTimeMillis();
 		for(int i=0;i<1000000;i++)
 			complejo.evaluarRecursivaPar(i);
-		System.out.print("RecursivaPar Complejo: ");
+		end = System.currentTimeMillis();
+		System.out.println("RecursivaPar Complejo: " + (end-start) + "ms");
 	}
 	
 	@Test
@@ -71,7 +77,8 @@ public class PolinomioTest {
 		start = System.currentTimeMillis();
 		for(int i=0;i<1000000;i++)
 			largo.evaluarRecursivaPar(i);
-		System.out.print("RecursivaPar Largo: ");
+		end = System.currentTimeMillis();
+		System.out.println("RecursivaPar Largo: " + (end-start) + "ms");
 	}
 	//End RecursivaPar
 	
@@ -82,7 +89,8 @@ public class PolinomioTest {
 		for(int i=0;i<1000000;i++) {
 			simple.evaluarMSucesivas(i);
 		}
-		System.out.print("MSucesivas Simple: ");
+		end = System.currentTimeMillis();
+		System.out.println("MSucesivas Simple: " + (end-start) + "ms");
 	}
 	
 	@Test
@@ -90,7 +98,8 @@ public class PolinomioTest {
 		start = System.currentTimeMillis();
 		for(int i=0;i<1000000;i++)
 			complejo.evaluarMSucesivas(i);
-		System.out.print("MSucesivas Complejo: ");
+		end = System.currentTimeMillis();
+		System.out.println("MSucesivas Complejo: " + (end-start) + "ms");
 	}
 	
 	@Test
@@ -98,7 +107,8 @@ public class PolinomioTest {
 		start = System.currentTimeMillis();
 		for(int i=0;i<1000000;i++)
 			largo.evaluarMSucesivas(i);
-		System.out.print("MSucesivas Largo: ");
+		end = System.currentTimeMillis();
+		System.out.println("MSucesivas Largo: " + (end-start) + "ms");
 	}
 	//End MSucesivas
 	
@@ -109,7 +119,8 @@ public class PolinomioTest {
 		for(int i=0;i<1000000;i++) {
 			simple.evaluarProgDinamica(i);
 		}
-		System.out.print("ProgDinamica Simple: ");
+		end = System.currentTimeMillis();
+		System.out.println("PrograDinamica Simple: " + (end-start) + "ms");
 	}
 	
 	@Test
@@ -117,7 +128,8 @@ public class PolinomioTest {
 		start = System.currentTimeMillis();
 		for(int i=0;i<1000000;i++)
 			complejo.evaluarProgDinamica(i);
-		System.out.print("ProgDinamica Complejo: ");
+		end = System.currentTimeMillis();
+		System.out.println("PrograDinamica Complejo: " + (end-start) + "ms");
 	}
 	
 	@Test
@@ -125,7 +137,8 @@ public class PolinomioTest {
 		start = System.currentTimeMillis();
 		for(int i=0;i<1000000;i++)
 			largo.evaluarProgDinamica(i);
-		System.out.print("ProgDinamica Largo: ");
+		end = System.currentTimeMillis();
+		System.out.println("PrograDinamica Largo: " + (end-start) + "ms");
 	}
 	//End ProgDinamica
 	
@@ -136,7 +149,8 @@ public class PolinomioTest {
 		for(int i=0;i<1000000;i++) {
 			simple.evaluarMejorada(i);
 		}
-		System.out.print("Mejorada Simple: ");
+		end = System.currentTimeMillis();
+		System.out.println("Mejorada Simple: " + (end-start) + "ms");
 	}
 	
 	@Test
@@ -144,7 +158,8 @@ public class PolinomioTest {
 		start = System.currentTimeMillis();
 		for(int i=0;i<1000000;i++)
 			complejo.evaluarMejorada(i);
-		System.out.print("Mejorada Complejo: ");
+		end = System.currentTimeMillis();
+		System.out.println("Mejorada Complejo: " + (end-start) + "ms");
 	}
 	
 	@Test
@@ -152,7 +167,8 @@ public class PolinomioTest {
 		start = System.currentTimeMillis();
 		for(int i=0;i<1000000;i++)
 			largo.evaluarMejorada(i);
-		System.out.print("Mejorada Largo: ");
+		end = System.currentTimeMillis();
+		System.out.println("Mejorada Largo: " + (end-start) + "ms");
 	}
 	//End Mejorada
 	
@@ -163,7 +179,8 @@ public class PolinomioTest {
 		for(int i=0;i<1000000;i++) {
 			simple.evaluarPow(i);
 		}
-		System.out.print("Pow Simple: ");
+		end = System.currentTimeMillis();
+		System.out.println("Pow Simple: " + (end-start) + "ms");
 	}
 	
 	@Test
@@ -171,7 +188,8 @@ public class PolinomioTest {
 		start = System.currentTimeMillis();
 		for(int i=0;i<1000000;i++)
 			complejo.evaluarPow(i);
-		System.out.print("Pow Complejo: ");
+		end = System.currentTimeMillis();
+		System.out.println("Pow Complejo: " + (end-start) + "ms");
 	}
 	
 	@Test
@@ -179,7 +197,8 @@ public class PolinomioTest {
 		start = System.currentTimeMillis();
 		for(int i=0;i<1000000;i++)
 			largo.evaluarPow(i);
-		System.out.print("Pow Largo: ");
+		end = System.currentTimeMillis();
+		System.out.println("Pow Largo: " + (end-start) + "ms");
 	}
 	//End Pow
 	
@@ -190,7 +209,8 @@ public class PolinomioTest {
 		for(int i=0;i<1000000;i++) {
 			simple.evaluarHorner(i);
 		}
-		System.out.print("Horner Simple: ");
+		end = System.currentTimeMillis();
+		System.out.println("Horner Simple: " + (end-start) + "ms");
 	}
 	
 	@Test
@@ -198,7 +218,8 @@ public class PolinomioTest {
 		start = System.currentTimeMillis();
 		for(int i=0;i<1000000;i++)
 			complejo.evaluarHorner(i);
-		System.out.print("Horner Complejo: ");
+		end = System.currentTimeMillis();
+		System.out.println("Horner Complejo: " + (end-start) + "ms");
 	}
 	
 	@Test
@@ -206,14 +227,9 @@ public class PolinomioTest {
 		start = System.currentTimeMillis();
 		for(int i=0;i<1000000;i++)
 			largo.evaluarHorner(i);
-		System.out.print("Horner Largo: ");
+		end = System.currentTimeMillis();
+		System.out.println("Horner Largo: " + (end-start) + "ms");
 	}
-	//End Horner
-	
-	@After
-	public void end() {
-		System.out.println(System.currentTimeMillis() - start + "ms");
-	}
-	    
+	//End Horner 
 	    
 }
