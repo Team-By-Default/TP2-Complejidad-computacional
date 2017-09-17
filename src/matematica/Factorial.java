@@ -38,7 +38,7 @@ public class Factorial {
 	public int dinamicoTD(int n) {
 		if(n == 0)
 			return 1;
-		if(this.guardados.get(n).intValue() != 0 )
+		if(this.guardados.size() > n && this.guardados.get(n).intValue() != 0 )
 			return this.guardados.get(n).intValue();
 		this.guardados.add(n, dinamicoTD(n-1));
 		return this.guardados.get(n).intValue();
