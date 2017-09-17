@@ -73,6 +73,62 @@ public class PolinomioTest {
 			largo.evaluarRecursivaPar(i);
 		System.out.print("RecursivaPar Largo: ");
 	}
+	//End RecursivaPar
+	
+	//MSucesivas
+	@Test
+	public void pruebaSimpleMSucesivas() {
+		start = System.currentTimeMillis();
+		for(int i=0;i<1000000;i++) {
+			simple.evaluarMSucesivas(i);
+		}
+		System.out.print("MSucesivas Simple: ");
+	}
+	
+	@Test
+	public void pruebaComplejoMSucesivas() {
+		start = System.currentTimeMillis();
+		for(int i=0;i<1000000;i++)
+			complejo.evaluarMSucesivas(i);
+		System.out.print("MSucesivas Complejo: ");
+	}
+	
+	@Test
+	public void pruebaLargoMSucesivas() {
+		start = System.currentTimeMillis();
+		for(int i=0;i<1000000;i++)
+			largo.evaluarMSucesivas(i);
+		System.out.print("MSucesivas Largo: ");
+	}
+	//End MSucesivas
+	
+	//ProgDinamica
+	@Test
+	public void pruebaSimpleProgDinamica() {
+		start = System.currentTimeMillis();
+		for(int i=0;i<1000000;i++) {
+			simple.evaluarProgDinamica(i);
+		}
+		System.out.print("ProgDinamica Simple: ");
+	}
+	
+	@Test
+	public void pruebaComplejoProgDinamica() {
+		start = System.currentTimeMillis();
+		for(int i=0;i<1000000;i++)
+			complejo.evaluarProgDinamica(i);
+		System.out.print("ProgDinamica Complejo: ");
+	}
+	
+	@Test
+	public void pruebaLargoProgDinamica() {
+		start = System.currentTimeMillis();
+		for(int i=0;i<1000000;i++)
+			largo.evaluarProgDinamica(i);
+		System.out.print("ProgDinamica Largo: ");
+	}
+	//
+	
 	@After
 	public void end() {
 		System.out.println(System.currentTimeMillis() - start + "ms");
