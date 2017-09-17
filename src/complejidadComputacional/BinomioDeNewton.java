@@ -85,15 +85,5 @@ public class BinomioDeNewton {
 		for(int i=1;i<=5;i++)
 			System.out.print(" + "+lista[i]+"X^"+i);
 		
-		//Test de velocidad
-		int n = 10;
-		int intentos= 10000;
-        long begTime = System.currentTimeMillis();
-        for(int j=0;j<intentos;j++){
-        	for (int i = 0; i < n; ++i) 
-        		bin.coefKDinamica(i, n);
-        }
-        long endTime = System.currentTimeMillis();
-        System.out.printf("\nTiempo total para %10d intentos con n= %d: %d ms\n", intentos,n, (endTime-begTime));
 	}
 }
