@@ -7,8 +7,6 @@ import org.junit.After;
 
 public class BinomioDeNewtonTest {
 
-	//int intentos=1000000; //para todos los de calcular el coeficiente k
-	int intentos=1000; //para los de calcular todos los coeficientes
 	long inicio;
 	BinomioDeNewton bin;
 	int nBajo=1,
@@ -23,13 +21,13 @@ public class BinomioDeNewtonTest {
 		bin=new BinomioDeNewton(2,3);
 	}
 	
-	/*
+	
 	//CoeficienteDelTerminoK
 	@Test
 	public void pruebaSimpleCoefDelTerminoK() {
 		inicio = System.currentTimeMillis();
         
-		for(int j=0;j<intentos;j++){
+		for(int j=0;j<1000000;j++){
         	for (int i = 0; i < nBajo; ++i) 
         		bin.obtenerCoeficienteDelTerminoK(i, nBajo);
         }
@@ -40,7 +38,7 @@ public class BinomioDeNewtonTest {
 	@Test
 	public void pruebaMedioCoefDelTerminoK() {
 		inicio = System.currentTimeMillis();
-        for(int j=0;j<intentos;j++){
+        for(int j=0;j<1000000;j++){
         	for (int i = 0; i < nMedio; ++i) 
         		bin.obtenerCoeficienteDelTerminoK(i, nMedio);
         }
@@ -50,7 +48,7 @@ public class BinomioDeNewtonTest {
 	@Test
 	public void pruebaLargoCoefDelTerminoK() {
 		inicio = System.currentTimeMillis();
-        for(int j=0;j<intentos;j++){
+        for(int j=0;j<1000000;j++){
         	for (int i = 0; i < nAlto; ++i) 
         		bin.obtenerCoeficienteDelTerminoK(i, nAlto);
         }
@@ -62,7 +60,7 @@ public class BinomioDeNewtonTest {
 	@Test
 	public void pruebaSimpleCoefDelTerminoKRec() {
 		inicio = System.currentTimeMillis();    
-		for(int j=0;j<intentos;j++){
+		for(int j=0;j<1000000;j++){
         	for (int i = 0; i < nBajo; ++i) 
 	       		bin.obtenerCoeficienteDelTerminoKRecursiva(i, nBajo);
         }
@@ -72,7 +70,7 @@ public class BinomioDeNewtonTest {
 	@Test
 	public void pruebaMedioCoefDelTerminoKRec() {
 		inicio = System.currentTimeMillis();
-	       for(int j=0;j<intentos;j++){
+	       for(int j=0;j<1000000;j++){
 	       	for (int i = 0; i < nMedio; ++i) 
 	       		bin.obtenerCoeficienteDelTerminoKRecursiva(i, nMedio);
 	       }
@@ -82,7 +80,7 @@ public class BinomioDeNewtonTest {
 	@Test
 	public void pruebaLargoCoefDelTerminoKRec() {
 		inicio = System.currentTimeMillis();
-	       for(int j=0;j<intentos;j++){
+	       for(int j=0;j<1000000;j++){
 	       	for (int i = 0; i < nAlto; ++i) 
 	       		bin.obtenerCoeficienteDelTerminoKRecursiva(i, nAlto);
 	       }
@@ -94,7 +92,7 @@ public class BinomioDeNewtonTest {
 	@Test
 	public void pruebaSimpleCoefDelTerminoKDin() {
 		inicio = System.currentTimeMillis();	        
-		for(int j=0;j<intentos;j++){
+		for(int j=0;j<1000000;j++){
         	for (int i = 0; i < nBajo; ++i) 
         		bin.coefKDinamica(i, nBajo);
         }
@@ -104,7 +102,7 @@ public class BinomioDeNewtonTest {
 	@Test
 	public void pruebaMedioCoefDelTerminoKDin() {
 		inicio = System.currentTimeMillis();
-		for(int j=0;j<intentos;j++){
+		for(int j=0;j<1000000;j++){
 		   	for (int i = 0; i < nMedio; ++i) 
 		   		bin.coefKDinamica(i, nMedio);
 	    }
@@ -114,7 +112,7 @@ public class BinomioDeNewtonTest {
 	@Test
 	public void pruebaLargoCoefDelTerminoKDin() {
 		inicio = System.currentTimeMillis();
-		for(int j=0;j<intentos;j++){
+		for(int j=0;j<1000000;j++){
 			for (int i = 0; i < nAlto; ++i) 
 			    bin.coefKDinamica(i, nAlto);
 		}
@@ -126,7 +124,7 @@ public class BinomioDeNewtonTest {
 		@Test
 		public void pruebaSimpleCoefDelTerminoKDinTD() {
 			inicio = System.currentTimeMillis();	        
-			for(int j=0;j<intentos;j++){
+			for(int j=0;j<1000000;j++){
 	        	for (int i = 0; i < nBajo; ++i) 
 	        		bin.coefKDinamicaTD(i, nBajo);
 	        }
@@ -136,7 +134,7 @@ public class BinomioDeNewtonTest {
 		@Test
 		public void pruebaMedioCoefDelTerminoKDinTD() {
 			inicio = System.currentTimeMillis();
-			for(int j=0;j<intentos;j++){
+			for(int j=0;j<1000000;j++){
 			   	for (int i = 0; i < nMedio; ++i) 
 			   		bin.coefKDinamicaTD(i, nMedio);
 		    }
@@ -146,19 +144,19 @@ public class BinomioDeNewtonTest {
 		@Test
 		public void pruebaLargoCoefDelTerminoKDinTD() {
 			inicio = System.currentTimeMillis();
-			for(int j=0;j<intentos;j++){
+			for(int j=0;j<1000000;j++){
 				for (int i = 0; i < nAlto; ++i) 
 				    bin.coefKDinamicaTD(i, nAlto);
 			}
 			System.out.print("Coeficiente de K Largo DIN TD: ");
 		}
-	*/
-	/*
+	
+	
 	//CoeficientesK
 		@Test
 		public void pruebaSimpleCoeficientesK() {
 			inicio = System.currentTimeMillis();    
-			for(int j=0;j<intentos;j++){
+			for(int j=0;j<100000;j++){
 	        	for (int i = 0; i < nBajo; ++i) 
 		       		bin.obtenerCoeficientesK(i);
 	        }
@@ -168,7 +166,7 @@ public class BinomioDeNewtonTest {
 		@Test
 		public void pruebaMedioCoeficientesK() {
 			inicio = System.currentTimeMillis();
-		       for(int j=0;j<intentos;j++){
+		       for(int j=0;j<100000;j++){
 		       	for (int i = 0; i < nMedio; ++i) 
 		       		bin.obtenerCoeficientesK(i);
 		       }
@@ -177,7 +175,7 @@ public class BinomioDeNewtonTest {
 		@Test
 		public void pruebaLargoCoeficientesK() {
 			inicio = System.currentTimeMillis();	
-			for(int j=0;j<intentos;j++){
+			for(int j=0;j<100000;j++){
 		      	for (int i = 0; i < nAlto; ++i) 
 		      		bin.obtenerCoeficientesK(i);
 		       }
@@ -188,7 +186,7 @@ public class BinomioDeNewtonTest {
 		@Test
 			public void pruebaSimpleCoeficientesKRec() {
 				inicio = System.currentTimeMillis();    
-				for(int j=0;j<intentos;j++){
+				for(int j=0;j<100000;j++){
 		        	for (int i = 0; i < nBajo; ++i) 
 			       		bin.obtenerCoeficientesKRecursiva(i);
 		        }
@@ -198,7 +196,7 @@ public class BinomioDeNewtonTest {
 		@Test
 		public void pruebaMedioCoeficientesKRec() {
 			inicio = System.currentTimeMillis();
-		    for(int j=0;j<intentos;j++){
+		    for(int j=0;j<100000;j++){
 		       	for (int i = 0; i < nMedio; ++i) 
 		       		bin.obtenerCoeficientesKRecursiva(i);
 		       }
@@ -208,7 +206,7 @@ public class BinomioDeNewtonTest {
 		@Test
 		public void pruebaLargoCoeficientesKRec() {
 			inicio = System.currentTimeMillis();
-     	    for(int j=0;j<intentos;j++){
+     	    for(int j=0;j<100000;j++){
 			    for (int i = 0; i < nAlto; ++i) 
 			       bin.obtenerCoeficientesKRecursiva(i);
 			}
@@ -219,7 +217,7 @@ public class BinomioDeNewtonTest {
 	@Test
 	public void pruebaSimpleCoeficientesKDin() {
 		inicio = System.currentTimeMillis();    
-		for(int j=0;j<intentos;j++){
+		for(int j=0;j<100000;j++){
 			for (int i = 0; i < nBajo; ++i) 
 				bin.todosCoefDinamica(i);
 		}
@@ -229,7 +227,7 @@ public class BinomioDeNewtonTest {
 	@Test
 	public void pruebaMedioCoeficientesKDin() {
 		inicio = System.currentTimeMillis();
-		for(int j=0;j<intentos;j++){
+		for(int j=0;j<100000;j++){
 			for (int i = 0; i < nMedio; ++i) 
 				bin.todosCoefDinamica(i);
 		}
@@ -239,7 +237,7 @@ public class BinomioDeNewtonTest {
 	@Test
 	public void pruebaLargoCoeficientesKDin() {
 		inicio = System.currentTimeMillis();
-		for(int j=0;j<intentos;j++){
+		for(int j=0;j<100000;j++){
 			for (int i = 0; i < nAlto; ++i) 
 				bin.todosCoefDinamica(i);
 		}
@@ -250,7 +248,7 @@ public class BinomioDeNewtonTest {
 		@Test
 		public void pruebaSimpleCoeficientesKDinTD() {
 			inicio = System.currentTimeMillis();    
-			for(int j=0;j<intentos;j++){
+			for(int j=0;j<100000;j++){
 				for (int i = 0; i < nBajo; ++i) 
 					bin.todosCoefDinamicaTD(i);
 			}
@@ -260,7 +258,7 @@ public class BinomioDeNewtonTest {
 		@Test
 		public void pruebaMedioCoeficientesKDinTD() {
 			inicio = System.currentTimeMillis();
-			for(int j=0;j<intentos;j++){
+			for(int j=0;j<100000;j++){
 				for (int i = 0; i < nMedio; ++i) 
 					bin.todosCoefDinamicaTD(i);
 			}
@@ -270,20 +268,20 @@ public class BinomioDeNewtonTest {
 		@Test
 		public void pruebaLargoCoeficientesKDinTD() {
 			inicio = System.currentTimeMillis();
-			for(int j=0;j<intentos;j++){
+			for(int j=0;j<100000;j++){
 				for (int i = 0; i < nAlto; ++i) 
 					bin.todosCoefDinamicaTD(i);
 			}
 			System.out.print("Coeficientes de K DIN TD Largo: ");
 		}
-	*/
+	
 	
 	//Calculo Binomio Simple
 	@Test
 	public void pruebaSimpleCalculo() {
 		inicio = System.currentTimeMillis();
         
-		for(int j=0;j<intentos;j++){
+		for(int j=0;j<1000;j++){
         	for (int i = 0; i < xBajo; ++i) 
         		bin.calculoBinomioSimple(n, i);
         }
@@ -294,7 +292,7 @@ public class BinomioDeNewtonTest {
 	@Test
 	public void pruebaMedioCalculo() {
 		inicio = System.currentTimeMillis();
-        for(int j=0;j<intentos;j++){
+        for(int j=0;j<1000;j++){
         	for (int i = 0; i < xMedio; ++i) 
         		bin.calculoBinomioSimple(n, i);
         }
@@ -304,7 +302,7 @@ public class BinomioDeNewtonTest {
 	@Test
 	public void pruebaLargoCalculo() {
 		inicio = System.currentTimeMillis();
-        for(int j=0;j<intentos;j++){
+        for(int j=0;j<1000;j++){
         	for (int i = 0; i < xAlto; ++i) 
         		bin.calculoBinomioSimple(n,i);
         }
@@ -316,7 +314,7 @@ public class BinomioDeNewtonTest {
 	public void pruebaSimpleCalculoPoli() {
 		inicio = System.currentTimeMillis();
         
-		for(int j=0;j<intentos;j++){
+		for(int j=0;j<1000;j++){
         	for (int i = 0; i < xBajo; ++i) 
         		bin.calculoPorPolinomioSimple(n, i);
         }
@@ -327,7 +325,7 @@ public class BinomioDeNewtonTest {
 	@Test
 	public void pruebaMedioCalculoPoli() {
 		inicio = System.currentTimeMillis();
-        for(int j=0;j<intentos;j++){
+        for(int j=0;j<1000;j++){
         	for (int i = 0; i < xMedio; ++i) 
         		bin.calculoPorPolinomioSimple(n, i);
         }
@@ -337,7 +335,7 @@ public class BinomioDeNewtonTest {
 	@Test
 	public void pruebaLargoCalculoPoli() {
 		inicio = System.currentTimeMillis();
-        for(int j=0;j<intentos;j++){
+        for(int j=0;j<1000;j++){
         	for (int i = 0; i < xAlto; ++i) 
         		bin.calculoPorPolinomioSimple(n,i);
         }
@@ -349,7 +347,7 @@ public class BinomioDeNewtonTest {
 	public void pruebaSimpleCalculoPoliRec() {
 		inicio = System.currentTimeMillis();
         
-		for(int j=0;j<intentos;j++){
+		for(int j=0;j<1000;j++){
         	for (int i = 0; i < xBajo; ++i) 
         		bin.calculoPorPolinomioRecursiva(n, i);
         }
@@ -360,7 +358,7 @@ public class BinomioDeNewtonTest {
 	@Test
 	public void pruebaMedioCalculoPoliRec() {
 		inicio = System.currentTimeMillis();
-        for(int j=0;j<intentos;j++){
+        for(int j=0;j<1000;j++){
         	for (int i = 0; i < xMedio; ++i) 
         		bin.calculoPorPolinomioRecursiva(n, i);
         }
@@ -370,7 +368,7 @@ public class BinomioDeNewtonTest {
 	@Test
 	public void pruebaLargoCalculoPoliRec() {
 		inicio = System.currentTimeMillis();
-        for(int j=0;j<intentos;j++){
+        for(int j=0;j<1000;j++){
         	for (int i = 0; i < xAlto; ++i) 
         		bin.calculoPorPolinomioRecursiva(n,i);
         }
@@ -382,7 +380,7 @@ public class BinomioDeNewtonTest {
 	public void pruebaSimpleCalculoPoliDin() {
 		inicio = System.currentTimeMillis();
         
-		for(int j=0;j<intentos;j++){
+		for(int j=0;j<1000;j++){
         	for (int i = 0; i < xBajo; ++i) 
         		bin.calculoPorPolinomioDinamica(n, i);
         }
@@ -393,7 +391,7 @@ public class BinomioDeNewtonTest {
 	@Test
 	public void pruebaMedioCalculoPoliDin() {
 		inicio = System.currentTimeMillis();
-        for(int j=0;j<intentos;j++){
+        for(int j=0;j<1000;j++){
         	for (int i = 0; i < xMedio; ++i) 
         		bin.calculoPorPolinomioDinamica(n, i);
         }
@@ -403,7 +401,7 @@ public class BinomioDeNewtonTest {
 	@Test
 	public void pruebaLargoCalculoPoliDin() {
 		inicio = System.currentTimeMillis();
-        for(int j=0;j<intentos;j++){
+        for(int j=0;j<1000;j++){
         	for (int i = 0; i < xAlto; ++i) 
         		bin.calculoPorPolinomioDinamica(n,i);
         }
@@ -415,7 +413,7 @@ public class BinomioDeNewtonTest {
 	public void pruebaSimpleCalculoPoliDinTD() {
 		inicio = System.currentTimeMillis();
         
-		for(int j=0;j<intentos;j++){
+		for(int j=0;j<1000;j++){
         	for (int i = 0; i < xBajo; ++i) 
         		bin.calculoPorPolinomioDinamicaTD(n, i);
         }
@@ -426,7 +424,7 @@ public class BinomioDeNewtonTest {
 	@Test
 	public void pruebaMedioCalculoPoliDinTD() {
 		inicio = System.currentTimeMillis();
-        for(int j=0;j<intentos;j++){
+        for(int j=0;j<1000;j++){
         	for (int i = 0; i < xMedio; ++i) 
         		bin.calculoPorPolinomioDinamicaTD(n, i);
         }
@@ -436,7 +434,7 @@ public class BinomioDeNewtonTest {
 	@Test
 	public void pruebaLargoCalculoPoliDinTD() {
 		inicio = System.currentTimeMillis();
-        for(int j=0;j<intentos;j++){
+        for(int j=0;j<1000;j++){
         	for (int i = 0; i < xAlto; ++i) 
         		bin.calculoPorPolinomioDinamicaTD(n,i);
         }
