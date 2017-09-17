@@ -24,6 +24,10 @@ public class BinomioDeNewton {
 		return Combinatoria.ale(n, k)*Math.pow(a, k)*Math.pow(b, n-k);
 	}
 	
+	public double calculoBinomioSimple(int k, double x) {
+		return Potencia.simple(this.a*x+this.b,k);
+	}
+	
 	public double[] obtenerCoeficientesK(int n) {
 		double aux[]=new double[n+1];
 		for(int i=0;i<=n;i++)

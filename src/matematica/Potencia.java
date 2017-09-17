@@ -10,6 +10,16 @@ public abstract class Potencia {
 		return x*recursiva(x, n-1);
 	}
 	
+	public static double simple(double x,int n) {
+		if(n<0)
+			throw new PotenciaException("Potencia negativa");
+		double aux=1;
+		for(int i=0;i<n;i++) {
+			aux=aux*x;
+		}
+		return aux;
+	}
+	
 	public static double recursivaPar(double x, int n) {
 		if(n<0)
 			throw new PotenciaException("Potencia negativa");
