@@ -127,7 +127,88 @@ public class PolinomioTest {
 			largo.evaluarProgDinamica(i);
 		System.out.print("ProgDinamica Largo: ");
 	}
-	//
+	//End ProgDinamica
+	
+	//Mejorada
+	@Test
+	public void pruebaSimpleMejorada() {
+		start = System.currentTimeMillis();
+		for(int i=0;i<1000000;i++) {
+			simple.evaluarMejorada(i);
+		}
+		System.out.print("Mejorada Simple: ");
+	}
+	
+	@Test
+	public void pruebaComplejoMejorada() {
+		start = System.currentTimeMillis();
+		for(int i=0;i<1000000;i++)
+			complejo.evaluarMejorada(i);
+		System.out.print("Mejorada Complejo: ");
+	}
+	
+	@Test
+	public void pruebaLargoMejorada() {
+		start = System.currentTimeMillis();
+		for(int i=0;i<1000000;i++)
+			largo.evaluarMejorada(i);
+		System.out.print("Mejorada Largo: ");
+	}
+	//End Mejorada
+	
+	//Pow
+	@Test
+	public void pruebaSimplePow() {
+		start = System.currentTimeMillis();
+		for(int i=0;i<1000000;i++) {
+			simple.evaluarPow(i);
+		}
+		System.out.print("Pow Simple: ");
+	}
+	
+	@Test
+	public void pruebaComplejoPow() {
+		start = System.currentTimeMillis();
+		for(int i=0;i<1000000;i++)
+			complejo.evaluarPow(i);
+		System.out.print("Pow Complejo: ");
+	}
+	
+	@Test
+	public void pruebaLargoPow() {
+		start = System.currentTimeMillis();
+		for(int i=0;i<1000000;i++)
+			largo.evaluarPow(i);
+		System.out.print("Pow Largo: ");
+	}
+	//End Pow
+	
+	//Horner
+	@Test
+	public void pruebaSimpleHorner() {
+		start = System.currentTimeMillis();
+		for(int i=0;i<1000000;i++) {
+			simple.evaluarHorner(i);
+		}
+		System.out.print("Horner Simple: ");
+	}
+	
+	@Test
+	public void pruebaComplejoHorner() {
+		start = System.currentTimeMillis();
+		for(int i=0;i<1000000;i++)
+			complejo.evaluarHorner(i);
+		System.out.print("Horner Complejo: ");
+	}
+	
+	@Test
+	public void pruebaLargoHorner() {
+		start = System.currentTimeMillis();
+		for(int i=0;i<1000000;i++)
+			largo.evaluarHorner(i);
+		System.out.print("Horner Largo: ");
+	}
+	//End Horner
 	
 	@After
 	public void end() {
