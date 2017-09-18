@@ -1,8 +1,17 @@
 package complejidadComputacional;
 
+
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
 import matematica.Potencia;
 
-public class Polinomio {
+public class Polinomio{
 	
 	private int grado ;
 	private double [] coeficientes;
@@ -14,6 +23,15 @@ public class Polinomio {
 		for(int i=0;i<=this.grado;i++) {
 			this.coeficientes[i]=vec[i];
 		}
+	}
+	
+	public Polinomio(String path) throws FileNotFoundException, IOException{
+		Scanner sc = new Scanner(new File(path));
+		this.grado=sc.nextInt();
+		this.coeficientes=new double[this.grado+1];
+		for(int i=0 ; i<=this.grado ; i++)
+			this.coeficientes[i]=Double.valueOf(sc.next());
+		sc.close();
 	}
 	
 	public double evaluarMSucesivas(double x) {
@@ -78,8 +96,17 @@ public class Polinomio {
             result = this.coeficientes[i]+(x*result);
         return result;
     }
+    
+    //printOnFile
+    public static void imprimir(String salida,double[] resultados, int cant,double[] valores) throws IOException{
+    	PrintWriter pw = new PrintWriter (new FileWriter(salida));
+    	for(int i=0; i<cant; i++){
+    		pw.println("P("+ valores[i] + ") =" + resultados[i]);
+    		}
+    	pw.close();
+    }
     	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		
 		//Casos de prueba
 		System.out.println("Resul\tSuces\tRecu\tRecuPar\tDinam\tMejor\tPow\tHorner");
@@ -134,7 +161,27 @@ public class Polinomio {
 		double vec5[]= {32767,-32770,1.79769313486231570E+308 };
 		poli = new Polinomio(2,vec5);
 		System.out.println("1.79769313486231570E+308\t" + poli.evaluarMSucesivas(x) + "\t" + poli.evaluarRecursiva(x) + "\t" + poli.evaluarRecursivaPar(x) + "\t" + poli.evaluarProgDinamica(x) + "\t" + poli.evaluarMejorada(x) + "\t" + poli.evaluarPow(x) + "\t" + poli.evaluarHorner(x));
-		
+		/*//genero arch
+		PrintWriter pw = new PrintWriter (new FileWriter("polinomio.in"));
+		pw.println("32767");
+		pw.print("1 ");
+    	for(int i=1; i<=32766; i++){
+    		pw.println("0 ");
+    		}
+    	pw.print("1 ");
+    	pw.close();*/
+		//lotes de archivo
+		Polinomio lote1 = new Polinomio("polinomio.in");
+		Scanner sc = new Scanner(new File("valoresx.in"));
+		int cant=sc.nextInt();
+		double[] resultados =new double[cant];
+		double[] valores =new double[cant];
+		for(int i=0; i<cant; i++){
+			valores[i]=Double.valueOf(sc.next());
+			resultados[i]=lote1.evaluarMSucesivas(valores[i]);
+		}
+		sc.close();
+		imprimir("polinomio.out",resultados,cant,valores);
 	}
 
 }
