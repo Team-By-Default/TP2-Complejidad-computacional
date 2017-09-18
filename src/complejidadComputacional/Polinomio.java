@@ -1,7 +1,6 @@
 package complejidadComputacional;
 
 import matematica.Potencia;
-import matematica.PotenciaException;
 
 public class Polinomio {
 	
@@ -18,10 +17,13 @@ public class Polinomio {
 	}
 	
 	public double evaluarMSucesivas(double x) {
-		double pow=1,total=0;
+		double pow,total=0;
 		for(int i=this.grado;i>=0;i--) {
+			pow=1;
+			for(int j=0;j<this.grado-i;j++)
+				pow=pow*x;//Asqueroso
 			total=total+pow*this.coeficientes[i];
-			pow=pow*x;
+			//pow=pow*x;
 		}
 		return total;	
 	}
@@ -47,49 +49,19 @@ public class Polinomio {
 	}
 	
 	public double evaluarProgDinamica (double x ) {
-		
-		if(this.grado<0)
-			throw new PotenciaException("Potencia negativa");
-		
-		int n = this.grado;
-		double result[]=new double[this.grado+1];
-		double total = 0;
-		
-		for(int i=0; i<=this.grado; i++) {
-			result[i] += this.coeficientes[i];
-			for(int j = 0; j < n; j++) {
-				result[i] = result[i] * x;
-			}
-			n--;
+		double pow=1,total=0;
+		for(int i=this.grado;i>=0;i--) {
+			total=total+pow*this.coeficientes[i];
+			pow=pow*x;
 		}
-		
-		for(int i=0; i<=this.grado; i++) {
-			total += result[i];
-		}
-		
-		return total;
+		return total;	
 	}
 	
 	double evaluarMejorada (double x ) {
-		
-		if(this.grado<0)
-			throw new PotenciaException("Potencia negativa");
-		
-		int n = this.grado;
-		double result = 0;
-		double total = 0;
-		
-		for(int i=0; i<=this.grado; i++) {
-			result += this.coeficientes[i];
-			for(int j = 0; j < n; j++) {
-				result = result * x;
-			}
-			total += result;
-			result = 0;
-			n--;
-		}
-		
-		return total;
+		double result=0;
+        for (int i = 0; i<=this.grado; i++)
+            result = this.coeficientes[i]+(x*result);
+        return result;
 	}
 	
 	public double evaluarPow (double x) {

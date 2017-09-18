@@ -35,7 +35,6 @@ public class Factorial {
 		return vec[n];
 	}
 	
-	//Falta codificar
 	public int dinamicoTD(int n) {
 		if(n == 0)
 			return 1;

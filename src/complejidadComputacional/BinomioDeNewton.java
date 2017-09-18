@@ -73,28 +73,28 @@ public class BinomioDeNewton {
 		double vec[];
 		vec=this.obtenerCoeficientesK(n);
 		Polinomio aux=new Polinomio(n,vec);
-		return aux.evaluarMSucesivas(x);
+		return aux.evaluarProgDinamica(x);
 	}
 		
 	public double calculoPorPolinomioRecursiva(int n,double x) {
 		double vec[];
 		vec=this.obtenerCoeficientesKRecursiva(n);
 		Polinomio aux=new Polinomio(n,vec);
-		return aux.evaluarMSucesivas(x);
+		return aux.evaluarProgDinamica(x);
 	}
 	
 	public double calculoPorPolinomioDinamica(int n,double x) {
 		double vec[];
 		vec=this.todosCoefDinamica(n);
 		Polinomio aux=new Polinomio(n,vec);
-		return aux.evaluarMSucesivas(x);
+		return aux.evaluarProgDinamica(x);
 	}
 	
 	public double calculoPorPolinomioDinamicaTD(int n,double x) {
 		double vec[];
 		vec=this.todosCoefDinamicaTD(n);
 		Polinomio aux=new Polinomio(n,vec);
-		return aux.evaluarMSucesivas(x);
+		return aux.evaluarProgDinamica(x);
 	}
 	
 	//Main de pruebas
